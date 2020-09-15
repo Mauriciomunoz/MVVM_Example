@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="formViewModelObservable"
+            type="com.mapp.mvvm_project.viewmodel.FormViewModelLiveData" />
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".MainActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:onClick="@{()-> formViewModelObservable.onBtnClicked()}"
+            android:text="LOGIN" />
+
+
+        <EditText
+            android:id="@+id/inName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:padding="8dp"
+            android:text="@={formViewModelObservable.name}" />
+
+
+        <EditText
+            android:id="@+id/inEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="8dp"
+            android:text="@={formViewModelObservable.email}" />
+
+
+        <TextView
+            android:id="@+id/txtOutput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={formViewModelObservable.errorStr}"
+            />
+
+
+    </LinearLayout>
+</layout>
